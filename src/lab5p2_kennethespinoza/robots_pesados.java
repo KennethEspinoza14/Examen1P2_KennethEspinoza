@@ -35,6 +35,7 @@ public class robots_pesados extends Robots{
     }
 
     public void setPeso(int peso) {
+        
         this.peso = peso;
     }
 
@@ -44,6 +45,11 @@ public class robots_pesados extends Robots{
 
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
+    }
+
+    @Override
+    public String toString() {
+        return "robots_pesados{" + "nelementos=" + nelementos + ", peso=" + peso + ", capacidad=" + capacidad + '}';
     }
     
     

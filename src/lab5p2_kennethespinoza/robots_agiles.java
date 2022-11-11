@@ -46,6 +46,11 @@ public class robots_agiles extends Robots{
         this.velocidad = velocidad;
     }
 
+    @Override
+    public String toString() {
+        return "robots_agiles{" + "nelementos=" + nelementos + ", nllantas=" + nllantas + ", velocidad=" + velocidad + '}';
+    }
+
    
     
     

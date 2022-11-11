@@ -21,6 +21,7 @@ public class manos_roboticas extends Robots{
     }
 
     public int getNelementos() {
+       
         return nelementos;
     }
 

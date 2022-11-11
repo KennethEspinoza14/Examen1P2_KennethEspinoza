@@ -23,11 +23,17 @@ public class Androide extends Robots{
     }
 
     public int getNelementos() {
+        
         return nelementos;
     }
 
     public void setNelementos(int nelementos) {
-        this.nelementos = nelementos;
+        if (nelementos >= 0 && nelementos <= 2) {
+            this.nelementos = nelementos;
+        } else {
+            System.out.println("El robot no puede cargar mas elementos");
+
+        }
     }
 
     public int getAltura() {
@@ -48,7 +54,7 @@ public class Androide extends Robots{
 
     @Override
     public String toString() {
-        return "Androide{" + "nelementos=" + nelementos + ", altura=" + altura + ", peso=" + peso + '}';
+        return super.toString()+"Androide{" + "nelementos=" + nelementos + ", altura=" + altura + ", peso=" + peso + '}';
     }
 
   
