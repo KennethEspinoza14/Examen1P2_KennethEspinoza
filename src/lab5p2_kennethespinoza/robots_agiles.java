@@ -11,7 +11,7 @@ package lab5p2_kennethespinoza;
  */
 public class robots_agiles extends Robots{
     
-    private int nelementos;
+    private int nelementos = 1;
     private int nllantas;
     private int velocidad;
 

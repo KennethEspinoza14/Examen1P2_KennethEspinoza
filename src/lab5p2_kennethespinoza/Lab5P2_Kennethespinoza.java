@@ -62,7 +62,7 @@ public class Lab5P2_Kennethespinoza {
                             System.out.println("Ingrese el peso del androide:");
                             peso = lea.nextInt();
                             
-                            System.out.println("Ingrese la cantidad de elementos del robot");
+                            System.out.println("Ingrese la cantidad de elementos del robot:");
                             nelementos = lea.nextInt();
                             
                             if (nelementos >= 0 && nelementos <= 2) {
@@ -74,17 +74,47 @@ public class Lab5P2_Kennethespinoza {
                         break;
                         
                         case 2: {
+                            int servomotor;
                             
+                            System.out.println("Ingrese la cantidad de servo motores que poseen las manos:");
+                            servomotor = lea.nextInt();
+                            
+                            robots.add(new manos_roboticas(servomotor, servomotor, id, x, y, control, añofab));
                         }
                         break;
                         
                         case 3: {
-
+                            int nllantas, velocidad;
+                            
+                            System.out.println("Ingrese el numero de llantas que posee el robot:");
+                            nllantas = lea.nextInt();
+                            
+                            System.out.println("Ingrese la velocidad punta del robot:");
+                            velocidad = lea.nextInt();
+                            
+                            robots.add(new robots_agiles(nllantas, nllantas, velocidad, id, x, y, control, añofab));
+                            
                         }
                         break;
                         
                         case 4: {
-
+                            int peso, capacidad, nelementos;
+                            
+                            System.out.println("Ingrese el peso del robot:");
+                            peso = lea.nextInt();
+                            
+                            System.out.println("Ingrese la capacidad del robot:");
+                            capacidad = lea.nextInt();
+                            
+                            System.out.println("Ingrese el numero de elementos que lleva el robot:");
+                            nelementos = lea.nextInt();
+                            
+                            if (nelementos >5 && capacidad >5) {
+                                robots.add(new robots_pesados(nelementos, peso, capacidad, id, x, y, control, añofab));
+                            } else {
+                                System.out.println("El robot debe cargar mas elementos");
+                            }
+                            
                         }
                         break;
                     }
@@ -92,7 +122,7 @@ public class Lab5P2_Kennethespinoza {
                 break;
                  
                 case 2:{
-                     String salida = "";
+                    String salida = "";
                     for (Object j : robots) {
                         salida += robots.indexOf(j) + "- " + j + "\n";
                         System.out.println(salida);

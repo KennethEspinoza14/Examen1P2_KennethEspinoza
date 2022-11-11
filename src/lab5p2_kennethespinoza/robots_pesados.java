@@ -27,7 +27,12 @@ public class robots_pesados extends Robots{
     }
 
     public void setNelementos(int nelementos) {
-        this.nelementos = nelementos;
+        if (nelementos > 5) {
+            this.nelementos = nelementos;
+        } else {
+            System.out.println("El robot debe tener mas elementos");
+
+        }
     }
 
     public int getPeso() {
@@ -44,7 +49,13 @@ public class robots_pesados extends Robots{
     }
 
     public void setCapacidad(int capacidad) {
-        this.capacidad = capacidad;
+        if (nelementos > 5) {
+            this.capacidad = capacidad;
+        } else {
+            System.out.println("El robot debe cargar mas elementos");
+
+        }
+
     }
 
     @Override
