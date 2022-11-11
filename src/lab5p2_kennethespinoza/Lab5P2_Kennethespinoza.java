@@ -16,8 +16,8 @@ public class Lab5P2_Kennethespinoza {
 
         boolean control = true;
 
-        while (control == true) {            
-            
+        while (control == true) {
+
             System.out.println("----------------MENU-----------------");
             System.out.println("|1| =  Crear Robot");
             System.out.println("|2| =  Listar Robot");
@@ -27,9 +27,9 @@ public class Lab5P2_Kennethespinoza {
             System.out.println("-------------------------------------");
             System.out.println("Ingrese la opcion a la que desea entrar:");
             int opcion = lea.nextInt();
-            
-            switch (opcion){
-                
+
+            switch (opcion) {
+
                 case 1: {
                     int id, x, y, añofab;
 
@@ -51,112 +51,156 @@ public class Lab5P2_Kennethespinoza {
                             + "3 = Robots Moviles agiles\n"
                             + "4 = Robots moviles pesados\n");
                     int ro = lea.nextInt();
-                    
+
                     switch (ro) {
 
                         case 1: {
                             int altura, peso, nelementos;
                             System.out.println("Ingrese la altura del Androide:");
                             altura = lea.nextInt();
-                            
+
                             System.out.println("Ingrese el peso del androide:");
                             peso = lea.nextInt();
-                            
+
                             System.out.println("Ingrese la cantidad de elementos del robot:");
                             nelementos = lea.nextInt();
-                            
+
                             if (nelementos >= 0 && nelementos <= 2) {
                                 robots.add(new Androide(nelementos, altura, peso, id, x, y, control, añofab));
+                                System.out.println("Se ha agregado un androide");
                             } else {
                                 System.out.println("El robot no puede cargar mas elementos");
                             }
+
                         }
                         break;
-                        
+
                         case 2: {
                             int servomotor;
-                            
+
                             System.out.println("Ingrese la cantidad de servo motores que poseen las manos:");
                             servomotor = lea.nextInt();
-                            
+
                             robots.add(new manos_roboticas(servomotor, servomotor, id, x, y, control, añofab));
+
+                            System.out.println("Se han agregado unas manos roboticas");
                         }
                         break;
-                        
+
                         case 3: {
                             int nllantas, velocidad;
-                            
+
                             System.out.println("Ingrese el numero de llantas que posee el robot:");
                             nllantas = lea.nextInt();
-                            
+
                             System.out.println("Ingrese la velocidad punta del robot:");
                             velocidad = lea.nextInt();
-                            
+
                             robots.add(new robots_agiles(nllantas, nllantas, velocidad, id, x, y, control, añofab));
-                            
+
+                            System.out.println("Se ha agregado un robot agil");
                         }
                         break;
-                        
+
                         case 4: {
                             int peso, capacidad, nelementos;
-                            
+
                             System.out.println("Ingrese el peso del robot:");
                             peso = lea.nextInt();
-                            
+
                             System.out.println("Ingrese la capacidad del robot:");
                             capacidad = lea.nextInt();
-                            
+
                             System.out.println("Ingrese el numero de elementos que lleva el robot:");
                             nelementos = lea.nextInt();
-                            
-                            if (nelementos >5 && capacidad >5) {
+
+                            if (nelementos >= 5 && nelementos <= capacidad) {
                                 robots.add(new robots_pesados(nelementos, peso, capacidad, id, x, y, control, añofab));
+                                System.out.println("Se ha agregado un robot pesado");
                             } else {
                                 System.out.println("El robot debe cargar mas elementos");
                             }
-                            
+
                         }
                         break;
+                        default:
+                            System.out.println("Opcion ingresada no valida");
                     }
                 }
                 break;
-                 
-                case 2:{
+
+                case 2: {
                     String salida = "";
                     for (Object j : robots) {
                         salida += robots.indexOf(j) + "- " + j + "\n";
                         System.out.println(salida);
                     }
+
                 }
                 break;
-                 
-                case 3:{
-                    
+
+                case 3: {
+                    String [][] matriz = new String[20][20];
+                    mapa(matriz);
                 }
                 break;
-                 
-                case 4:{
-                    
+
+                case 4: {
+                    String [][] matriz = new String[20][20];
+                    mapa(matriz);
                 }
                 break;
-                 
-                case 5:{
+
+                case 5: {
                     control = false;
                 }
                 break;
                 default:
                     System.out.println("Opcion ingresada no valida");
-                
+
             }
-            
+
         }
-        
-        
-        
-        
-        
-        
-        
+
     }
     
+    public static void mapa(String m[][]) {
+
+        String[][] matriz = new String[20][20];
+
+        String x = "X";
+        String c = "C";
+        String d = "D";
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                matriz[i][j] = "[ ]";
+            }
+        }
+
+        for (int i = 0; i < 100; i++) {
+            int f = 1 + r.nextInt(19);
+            int g = 1 + r.nextInt(19);
+            matriz[f][g] = "[X]";
+        }
+
+        for (int i = 0; i < 6; i++) {
+            int f = 1 + r.nextInt(19);
+            int g = 1 + r.nextInt(19);
+            matriz[f][g] = "[C]";
+        }
+
+        int a = 1 + r.nextInt(19);
+        int b = 1 + r.nextInt(19);
+        matriz[a][b] = "[D]";
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.print(matriz[i][j]);
+            }
+            System.out.println();
+        }
+
+    }// fin tablero
+
 }

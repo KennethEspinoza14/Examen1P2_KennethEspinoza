@@ -9,7 +9,7 @@ package lab5p2_kennethespinoza;
  *
  * @author Kenneth
  */
-public class Robots {
+public class Robots implements Movimiento{
     
     private int id;
     private int x;
@@ -68,6 +68,11 @@ public class Robots {
     @Override
     public String toString() {
         return "Robots{" + "id=" + id + ", x=" + x + ", y=" + y + ", carga=" + carga + ", año de fabricacion=" + añofab + '}';
+    }
+
+    @Override
+    public void adv() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    

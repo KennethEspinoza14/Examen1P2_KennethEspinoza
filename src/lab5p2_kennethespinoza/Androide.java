@@ -57,7 +57,12 @@ public class Androide extends Robots{
         return super.toString()+"Androide{" + "nelementos=" + nelementos + ", altura=" + altura + ", peso=" + peso + '}';
     }
 
-  
+   
+
     
+    
+  
+   
+
     
 }
