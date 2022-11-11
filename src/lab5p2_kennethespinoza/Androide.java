@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package lab5p2_kennethespinoza;
 
 /**
  *
  * @author Kenneth
  */
-public class Androide extends Robots{
-    
+public class Androide extends Robots {
+
     int nelementos;
     int altura;
     int peso;
@@ -23,7 +19,7 @@ public class Androide extends Robots{
     }
 
     public int getNelementos() {
-        
+
         return nelementos;
     }
 
@@ -54,15 +50,38 @@ public class Androide extends Robots{
 
     @Override
     public String toString() {
-        return super.toString()+"Androide{" + "nelementos=" + nelementos + ", altura=" + altura + ", peso=" + peso + '}';
+        return super.toString() + "Androide{" + "nelementos=" + nelementos + ", altura=" + altura + ", peso=" + peso + '}';
     }
 
-   
+    public void adv(Object[][] mapa, int x1, int y1, int x2, int y2, char tecla, int pasos) {
 
-    
-    
-  
-   
+        int movimientos = 0;
 
-    
+        if (pasos == 1) {
+            if (tecla == 'w') { // arriba
+                if (mapa[y1 - 1][x1] == "[x]") {
+                    System.out.println("Hay un obstaculo");
+                } else {
+                    mapa[y1 - 1][x1] = mapa[y1][x1];
+                    y1 -= 1;
+                    mapa[y1][x1] = null;
+                    movimientos += 1;
+                }
+            } else if (tecla == 's') { // abajo
+                if (mapa[y1 + 1][x1] == "[x]") {
+                    System.out.println("Hay un obstaculo");
+                } else {
+                    mapa[y1 + 1][x1] = mapa[y1][x1];
+                    y1 += 1;
+                    mapa[y1][x1] = null;
+                    movimientos += 1;
+                }
+            }else if(tecla == 'a'){
+                
+            }
+
+        }
+
+    }
+
 }
