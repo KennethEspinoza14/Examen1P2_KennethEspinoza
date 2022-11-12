@@ -9,10 +9,9 @@ public class Lab5P2_Kennethespinoza {
 
     static Scanner lea = new Scanner(System.in);
     static Random r = new Random();
+    static ArrayList<Robots> robots = new ArrayList();
 
     public static void main(String[] args) {
-
-        ArrayList<Robots> robots = new ArrayList();
 
         boolean control = true;
 
@@ -130,6 +129,7 @@ public class Lab5P2_Kennethespinoza {
                 break;
 
                 case 2: {
+                    
                     String salida = "";
                     for (Object j : robots) {
                         salida += robots.indexOf(j) + "- " + j + "\n";
@@ -140,13 +140,38 @@ public class Lab5P2_Kennethespinoza {
                 break;
 
                 case 3: {
-                    
+
                 }
                 break;
 
                 case 4: {
-                    String [][] matriz = new String[8][8];
-                    mapa(opcion);
+                    String[][] matriz = new String[8][8];
+                    String salida = "";
+                    for (Object j : robots) {
+                        salida += robots.indexOf(j) + "- " + j + "\n";
+                        System.out.println(salida);
+                    }
+
+                    System.out.println("Ingrese el robot que desea utilizar:");
+                    int op = lea.nextInt();
+
+                    System.out.println("Que desea hacer?"
+                            + "Moverse\n"
+                            + "Rotar\n");
+                    int mov = lea.nextInt();
+
+                    switch (mov) {
+                        case 1: {
+
+                        }
+                        break;
+                        case 2: {
+
+                        }
+                        break;
+                    }
+
+                    mapa(op);
                 }
                 break;
 
@@ -162,22 +187,23 @@ public class Lab5P2_Kennethespinoza {
         }
 
     }
-    
-    public static void mapa(int opcion) {
+
+    public static void mapa(int op) {
 
         Object[][] matriz = new String[8][8];
 
-        String x = "X";
-        String c = "C";
-        String d = "D";
+        String obs = "X";
+        String caja = "C";
+        String dest = "D";
+
+        int x = ((Robots) robots.get(op)).getX();
+        int y = ((Robots) robots.get(op)).getY();
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 matriz[i][j] = "[ ]";
             }
         }
-        
-        
 
         for (int i = 0; i < 30; i++) {
             int f = 1 + r.nextInt(7);
@@ -197,6 +223,9 @@ public class Lab5P2_Kennethespinoza {
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
+                if (i == x && j == y) {
+                    matriz[i][j] = "[R]";
+                }
                 System.out.print(matriz[i][j]);
             }
             System.out.println();

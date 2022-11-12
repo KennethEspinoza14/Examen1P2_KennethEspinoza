@@ -39,7 +39,52 @@ public class manos_roboticas extends Robots{
 
     @Override
     public String toString() {
-        return "manos_roboticas{" + "nelementos=" + nelementos + ", servomotor=" + servomotor + '}';
+        return super.toString()+"manos_roboticas{" + "nelementos=" + nelementos + ", servomotor=" + servomotor + '}';
+    }
+    
+    
+     public void adv(Object[][] mapa, int x1, int y1, int x2, int y2, char tecla, int pasos) {
+
+        int movimientos = 0;
+
+            if (tecla == 'w') { // arriba
+                if (mapa[y1 - 1][x1] == "[x]") {
+                    System.out.println("Hay un obstaculo");
+                } else {
+                    mapa[y1 - 1][x1] = mapa[y1][x1];
+                    y1 -= 1;
+                    mapa[y1][x1] = null;
+                    movimientos += 1;
+                }
+            } else if (tecla == 's') { // abajo
+                if (mapa[y1 + 1][x1] == "[x]") {
+                    System.out.println("Hay un obstaculo");
+                } else {
+                    mapa[y1 + 1][x1] = mapa[y1][x1];
+                    y1 += 1;
+                    mapa[y1][x1] = null;
+                    movimientos += 1;
+                }
+            } else if (tecla == 'a') { //izquierda
+                if (mapa[y1][x1 - 1] == "[x]") {
+                    System.out.println("Hay un obstaculo");
+                } else {
+                    mapa[y1][x1 - 1] = mapa[y1][x1];
+                    x1 -= 1;
+                    mapa[y1][x1] = null;
+                    movimientos += 1;
+                }
+            } else if (tecla == 'd') { // derecha
+                if (mapa[y1][x1 + 1] == "[x]") {
+                    System.out.println("Hay un obstaculo");
+                } else {
+                    mapa[y1][x1 + 1] = mapa[y1][x1];
+                    x1 += 1;
+                    mapa[y1][x1] = null;
+                    movimientos += 1;
+                }
+            }
+       
     }
     
     public void gir(int ang, char tecla) {

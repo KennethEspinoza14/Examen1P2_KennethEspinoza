@@ -53,7 +53,6 @@ public class Androide extends Robots {
         return super.toString() + "Androide{" + "nelementos=" + nelementos + ", altura=" + altura + ", peso=" + peso + '}';
     }
 
-    
     public void adv(Object[][] mapa, int x1, int y1, int x2, int y2, char tecla, int pasos) {
 
         int movimientos = 0;
@@ -82,7 +81,7 @@ public class Androide extends Robots {
                     System.out.println("Hay un obstaculo");
                 } else {
                     mapa[y1][x1 - 1] = mapa[y1][x1];
-                    y1 -= 1;
+                    x1 -= 1;
                     mapa[y1][x1] = null;
                     movimientos += 1;
                 }
@@ -91,7 +90,7 @@ public class Androide extends Robots {
                     System.out.println("Hay un obstaculo");
                 } else {
                     mapa[y1][x1 + 1] = mapa[y1][x1];
-                    y1 += 1;
+                    x1 += 1;
                     mapa[y1][x1] = null;
                     movimientos += 1;
                 }
