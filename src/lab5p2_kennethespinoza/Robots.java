@@ -72,7 +72,22 @@ public class Robots implements Movimiento{
 
     @Override
     public void adv() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+    }
+
+    @Override
+    public void gir() {
+        
+    }
+
+    @Override
+    public void chr() {
+        
+    }
+
+    @Override
+    public void dmnt() {
+        
     }
 
    

@@ -53,6 +53,7 @@ public class Androide extends Robots {
         return super.toString() + "Androide{" + "nelementos=" + nelementos + ", altura=" + altura + ", peso=" + peso + '}';
     }
 
+    
     public void adv(Object[][] mapa, int x1, int y1, int x2, int y2, char tecla, int pasos) {
 
         int movimientos = 0;
@@ -76,12 +77,67 @@ public class Androide extends Robots {
                     mapa[y1][x1] = null;
                     movimientos += 1;
                 }
-            }else if(tecla == 'a'){
-                
+            } else if (tecla == 'a') { //izquierda
+                if (mapa[y1][x1 - 1] == "[x]") {
+                    System.out.println("Hay un obstaculo");
+                } else {
+                    mapa[y1][x1 - 1] = mapa[y1][x1];
+                    y1 -= 1;
+                    mapa[y1][x1] = null;
+                    movimientos += 1;
+                }
+            } else if (tecla == 'd') { // derecha
+                if (mapa[y1][x1 + 1] == "[x]") {
+                    System.out.println("Hay un obstaculo");
+                } else {
+                    mapa[y1][x1 + 1] = mapa[y1][x1];
+                    y1 += 1;
+                    mapa[y1][x1] = null;
+                    movimientos += 1;
+                }
             }
 
         }
 
+        
+    }
+
+    public void gir(int ang, char tecla) {
+
+        // w = arriba
+        // s = abajo
+        // a = izquierda
+        // d = derecha
+        
+        if (ang == 90 & tecla == 'a') {
+            tecla = 'w';
+        } else if (ang == 90 & tecla == 'd') {
+            tecla = 's';
+        } else if (ang == 90 & tecla == 'w') {
+            tecla = 'd';
+        } else if (ang == 90 & tecla == 's') {
+            tecla = 'a';
+        }
+
+        if (ang == 180 & tecla == 'a') {
+            tecla = 'd';
+        } else if (ang == 180 & tecla == 'd') {
+            tecla = 'a';
+        } else if (ang == 180 & tecla == 'w') {
+            tecla = 'a';
+        } else if (ang == 180 & tecla == 's') {
+            tecla = 's';
+        }
+
+        if (ang == 270 & tecla == 'a') {
+            tecla = 'd';
+        } else if (ang == 270 & tecla == 'd') {
+            tecla = 's';
+        } else if (ang == 270 & tecla == 'w') {
+            tecla = 'a';
+        } else if (ang == 270 & tecla == 's') {
+            tecla = 'd';
+        }
     }
 
 }

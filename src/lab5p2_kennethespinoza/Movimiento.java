@@ -8,8 +8,9 @@ package lab5p2_kennethespinoza;
 public interface Movimiento {
     
     public void adv ();
-    
-    
+    public void gir ();
+    public void chr ();
+    public void dmnt();
       
     
 }

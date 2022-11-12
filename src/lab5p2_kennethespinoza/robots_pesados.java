@@ -63,6 +63,42 @@ public class robots_pesados extends Robots{
         return "robots_pesados{" + "nelementos=" + nelementos + ", peso=" + peso + ", capacidad=" + capacidad + '}';
     }
     
-    
+    public void gir(int ang, char tecla) {
+
+        // w = arriba
+        // s = abajo
+        // a = izquierda
+        // d = derecha
+        
+        if (ang == 90 & tecla == 'a') {
+            tecla = 'w';
+        } else if (ang == 90 & tecla == 'd') {
+            tecla = 's';
+        } else if (ang == 90 & tecla == 'w') {
+            tecla = 'd';
+        } else if (ang == 90 & tecla == 's') {
+            tecla = 'a';
+        }
+
+        if (ang == 180 & tecla == 'a') {
+            tecla = 'd';
+        } else if (ang == 180 & tecla == 'd') {
+            tecla = 'a';
+        } else if (ang == 180 & tecla == 'w') {
+            tecla = 'a';
+        } else if (ang == 180 & tecla == 's') {
+            tecla = 's';
+        }
+
+        if (ang == 270 & tecla == 'a') {
+            tecla = 'd';
+        } else if (ang == 270 & tecla == 'd') {
+            tecla = 's';
+        } else if (ang == 270 & tecla == 'w') {
+            tecla = 'a';
+        } else if (ang == 270 & tecla == 's') {
+            tecla = 'd';
+        }
+    }
     
 }

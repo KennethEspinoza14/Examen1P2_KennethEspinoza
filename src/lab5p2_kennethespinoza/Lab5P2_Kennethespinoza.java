@@ -140,14 +140,13 @@ public class Lab5P2_Kennethespinoza {
                 break;
 
                 case 3: {
-                    String [][] matriz = new String[20][20];
-                    mapa(matriz);
+                    
                 }
                 break;
 
                 case 4: {
-                    String [][] matriz = new String[20][20];
-                    mapa(matriz);
+                    String [][] matriz = new String[8][8];
+                    mapa(opcion);
                 }
                 break;
 
@@ -164,9 +163,9 @@ public class Lab5P2_Kennethespinoza {
 
     }
     
-    public static void mapa(String m[][]) {
+    public static void mapa(int opcion) {
 
-        String[][] matriz = new String[20][20];
+        Object[][] matriz = new String[8][8];
 
         String x = "X";
         String c = "C";
@@ -177,21 +176,23 @@ public class Lab5P2_Kennethespinoza {
                 matriz[i][j] = "[ ]";
             }
         }
+        
+        
 
-        for (int i = 0; i < 100; i++) {
-            int f = 1 + r.nextInt(19);
-            int g = 1 + r.nextInt(19);
+        for (int i = 0; i < 30; i++) {
+            int f = 1 + r.nextInt(7);
+            int g = 1 + r.nextInt(7);
             matriz[f][g] = "[X]";
         }
 
         for (int i = 0; i < 6; i++) {
-            int f = 1 + r.nextInt(19);
-            int g = 1 + r.nextInt(19);
+            int f = 1 + r.nextInt(7);
+            int g = 1 + r.nextInt(7);
             matriz[f][g] = "[C]";
         }
 
-        int a = 1 + r.nextInt(19);
-        int b = 1 + r.nextInt(19);
+        int a = 1 + r.nextInt(7);
+        int b = 1 + r.nextInt(7);
         matriz[a][b] = "[D]";
 
         for (int i = 0; i < matriz.length; i++) {
